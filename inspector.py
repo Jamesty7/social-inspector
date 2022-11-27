@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from lxml import etree
 from time import sleep
+import argparse
+import sys
 
 def get_github_info(url):
     driver = webdriver.Chrome()
@@ -116,10 +118,20 @@ def ig_get_post_info(driver, post_url):
     for item in post_tags:
         tags.append(item.text)
     print("Author {}, Text {}, Tags {} ".format(author, post_text, tags))
-        
 
-repo_data = get_github_info("https://github.com/CodeYourFuture/node-challenge-chat-server")
-print(repo_data)
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--url', help='Github repo URL')
+    args = parser.parse_args()
+    github_url = args.url
+    if github_url:
+        sys.stdout.write(str(get_github_info(github_url)))
+
+if __name__ == '__main__':
+    main()
+
+# repo_data = get_github_info("https://github.com/CodeYourFuture/node-challenge-chat-server")
+# print(repo_data)
 
 # driver = webdriver.Chrome()
 # ig_login(driver, "username", "password")
