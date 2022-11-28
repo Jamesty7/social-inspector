@@ -8,7 +8,7 @@ Stats can be saved in JSON or YAML format.
 ## Requirements
 
 - Python 3.x (tested only on 3.7)
-- The following modules must be installed: `pip install bs4 selenium lxml argparse`
+- The following modules must be installed: `pip install bs4 selenium lxml argparse pyyaml`
 
 ## Usage
 ```console
