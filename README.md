@@ -3,6 +3,7 @@
 ## Description
 
 Python script which fetches stats for a given github repo or instagram tag (WIP)
+Stats can be saved in JSON or YAML format.
 
 ## Requirements
 
@@ -11,5 +12,5 @@ Python script which fetches stats for a given github repo or instagram tag (WIP)
 
 ## Usage
 ```console
-foo@bar:~$ python inspector.py --url https://github.com/facebook/react
+$ python inspector.py --format yaml --url https://github.com/facebook/react
 ```
