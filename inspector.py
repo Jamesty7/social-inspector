@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from lxml import etree
 from time import sleep
+import yaml
 import argparse
 import sys
 
@@ -122,10 +123,14 @@ def ig_get_post_info(driver, post_url):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--url', help='Github repo URL')
+    parser.add_argument('--format', choices=["json", "yaml"], default="json", help='Result format (JSON by default)')
     args = parser.parse_args()
     github_url = args.url
     if github_url:
-        sys.stdout.write(str(get_github_info(github_url)))
+        result = get_github_info(github_url)
+        if args.format == "yaml":
+            result = yaml.dump(result)
+        sys.stdout.write(str(result))
 
 if __name__ == '__main__':
     main()
